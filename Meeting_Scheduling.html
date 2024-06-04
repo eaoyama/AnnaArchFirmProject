@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Scheduling</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+</script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg  sticky-top bg-body-tertiary">
+        <div class="container-fluid">
+            <div style="margin: 0rem 2rem 0rem 0rem;">
+                <img src="https://www.simplilearn.com/ice9/new_logo.svgz" alt="Annas Arch Firm logo" width="200px"
+                    height="auto">
+            </div>
+            <a class="navbar-brand" href="dashboard.html">Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Client_Profile.html">Client Profile & Project</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="Meeting_Scheduling.html">Meeting Scheduler</a>
+                    </li>
+
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li> -->
+                </ul>
+
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="button button_secondary" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" style="margin-left: 4rem;"  href="Signin.html">Sign out</a>
+                    </div>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="center" style="padding-top: 2rem;">
+        <h1>Anna's Architecture Firm</h1>
+        <h2>Meeting Scheduler</h2>
+    </div>
+
+
+
+    <div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
+        <form class="row g-3" action="" method="get">
+            
+        <div class="col-12">
+                <label for="Client ID" class="form-label">Client ID</label>
+                <input type="number" class="form-control" id="c_id" name="c_id" required>
+            </div> 
+        
+            <div class="col-md-4">
+                <label for="Date" class="form-label">Date</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+
+            <div class="col-md-4">
+                <label for="Start Time" class="form-label">Start Time</label>
+                <input type="time" class="form-control" id="s_time" name="s_time" required>
+            </div>
+
+            <div class="col-md-4">
+                <label for="End Time" class="form-label">End Time</label>
+                <input type="time" class="form-control" id="e_time" name="e_time" required>
+            </div>
+
+            <div class="col-md-12">
+                <label for="Location Time" class="form-label">Location</label>
+                <input type="text" class="form-control" id="location" name="location">
+            </div>
+
+            <div class="col-md-12">
+                <label for="Subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject" name="subject" required>
+            </div>
+
+            <div class="col-md-12">
+                <label for="Description" class="form-label" style="vertical-align: top;">Description</label>
+                <textarea name="description" class="form-control" id="description" cols="30" rows="2"></textarea>
+            </div>
+    
+            <div class="col-12" style="text-align: right;">
+                <span><input type="text" name="m_id" id="m_id" readonly style="border: none; text-align: right;" placeholder="Meeting ID"></span>
+            </div>
+
+            <div class="col-12" style="text-align: right;">
+                <button class="button button_primary" type="button" value="Save">Save</button>
+            </div>
+    
+        </form>
+    </div>
+    
+
+</body>
+
+</html>

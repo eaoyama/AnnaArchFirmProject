@@ -1,0 +1,74 @@
+html,
+body {
+  height: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+  color: #011e41;
+  background-color: #f5f3f1 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+h1 {
+  color: #011e41 !important;
+}
+
+h2 {
+  color: #4ca1bd !important;
+}
+
+.form-signin {
+  padding: 2rem 3rem;
+  width: 30rem;
+  margin: 0 auto; /* This will center the form horizontally */
+  }
+
+.form-centered {
+  padding: 2rem 3rem;
+  width: 50rem;
+  margin: 0 auto; /* This will center the form horizontally */
+    }
+
+.form-border {
+  border: 1px solid #011e41;
+  border-radius: 10px;
+  margin: 0 auto; /* This will center the form horizontally */
+  background-color: #fff;
+}
+.center {
+  text-align: center;
+}
+
+button {
+  cursor: pointer !important;
+  padding: .2rem 2rem !important;
+  border-radius: 20px  !important;
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border .15s ease-in-out, border-color .15s ease-in-out,;
+}
+.button_primary {
+  color: #011e41 !important;
+  background-color: #fff !important;
+  border-color: #011e41 !important;
+  border: solid 1px;
+}
+
+.button_primary:hover {
+  color: #fff !important;
+  background-color: #011e41 !important;
+
+}
+
+.button_secondary {
+  color: gray;
+  background-color: #fff;
+  border-color: gray;
+  border: solid 1px;
+}
+
+.button_secondary:hover {
+  color: #fff;
+  background-color: gray;
+
+}
