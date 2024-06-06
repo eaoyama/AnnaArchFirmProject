@@ -72,3 +72,46 @@ button {
   background-color: gray;
 
 }
+
+/* input:required {
+  border: 2px solid red;
+} */
+/* input:invalid {
+  border: 2px solid red;
+} */
+
+
+/* The message box is shown when the user clicks on the password field */
+#password_error {
+  display:none;
+  color: #011e41;
+  position: relative;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid_password {
+  color: green;
+}
+
+.valid_password:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid_password {
+  color: red;
+}
+
+.invalid_password:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+
+.date-time-error-message {
+  color: red;
+  font-size: 14px;
+  display: none;
+}
