@@ -1,0 +1,329 @@
+    <div class="center" style="padding-top: 2rem;">
+        <h1>Anna's Architecture Firm</h1>
+        <h2>Client Profile Creation</h2>
+    </div>
+
+    <div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
+        <p>* Required Field</p>
+
+        <h3 style="display: inline !important;"><u><i>Client Contact Information</i></u></h3>
+        <div style="padding-left: 2rem; display: inline !important;">
+            <a routerLink="/schedule_meeting">Schedule a meeting with this client.</a>
+            <a href="schedule-meeting.component.html">Schedule a meeting with this client.</a>
+        </div>
+
+        <form class="row g-3" style="padding-top: 1rem;">
+            <div class="col-md-4">
+                <label for="First name" class="form-label">First Name*</label>
+                <input type="text" class="form-control" id="f_name" name="f_name" minlength="1" required>
+            </div>
+            <div class="col-md-3">
+                <label for="Middle name" class="form-label">Middle Name</label>
+                <input type="text" class="form-control" id="m_name" name="m_name">
+            </div>
+            <div class="col-md-5">
+                <label for="Last name" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="l_name" name="l_name">
+            </div>
+
+            <div class="col-md-6">
+                <label for="Email" class="form-label">Email Address*</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="Phone" class="form-label">Phone Number (format: xxx-xxx-xxxx)</label>
+                <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            </div>
+
+            <div class="col-md-12">
+                <label for="Profile Notes" class="form-label" style="vertical-align: top;">Notes</label>
+                <textarea name="profile_notes" class="form-control" id="profile_notes" cols="30" rows="2"></textarea> <br>
+            </div>
+
+            <div class="col-12" style="text-align: right;">
+                <span><input type="text" name="m_id" id="m_id" readonly style="border: none; text-align: right;"
+                        placeholder="Client ID"></span>
+            </div>
+
+            <div class="col-12" style="text-align: right;">
+                <button class="button button_primary" type="submit" id="saveButton" value="Save">Save</button>
+            </div>
+    </form>
+    </div>
+
+    <div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
+        <h3 style="padding-bottom: 1rem;"><u><i>Address/Project 1</i></u></h3>
+        <form class="row g-3">
+            <div class="col-12">
+                <label for="Address1" class="form-label">Address 1</label>
+                <input type="text" class="form-control" name="address1" id="address1" placeholder="1234 Main St">
+            </div>
+            <div class="col-12">
+                <label for="Address2" class="form-label">Address 2</label>
+                <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="col-md-6">
+                <label for="City" class="form-label">City</label>
+                <input type="text" class="form-control" id="city" name="city">
+            </div>
+            <div class="col-md-4">
+                <label for="State" class="form-label">State</label>
+                <select id="state" class="form-select" name="state">
+                    <option selected>--Select State--</option>
+                    <Option value="Alabama">Alabama</Option>
+                    <option value="Alaska">Alaska</option>
+                    <option value="Arizona">Arizona</option>
+                    <option value="Arkansas">Arkansas</option>
+                    <option value="California">California</option>
+                    <option value="Colorado">Colorado</option>
+                    <option value="Connecticut">Connecticut</option>
+                    <option value="Delaware">Delaware</option>
+                    <option value="District of Columbia">District of Columbia</option>
+                    <option value="Florida">Florida</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Hawaii">Hawaii</option>
+                    <option value="Idaho">Idaho</option>
+                    <option value="Illinois">Illinois</option>
+                    <option value="Indiana">Indiana</option>
+                    <option value="Iowa">Iowa</option>
+                    <option value="Kansas">Kansas</option>
+                    <option value="Kentucky">Kentucky</option>
+                    <option value="Lousiana">Lousiana</option>
+                    <option value="Maine">Maine</option>
+                    <option value="Massachussetts">Massachussetts</option>
+                    <option value="Michigan">Michigan</option>
+                    <option value="Minnesota">Minnesota</option>
+                    <option value="Mississippi">Mississippi</option>
+                    <option value="Missouri">Missouri</option>
+                    <option value="Montana">Montana</option>
+                    <option value="Nebraska">Nebraska</option>
+                    <option value="Nevada">Nevada</option>
+                    <option value="New Hampshire">New Hampshire</option>
+                    <option value="New Jersey">New Jersey</option>
+                    <option value="New Mexico">New Mexico</option>
+                    <option value="New York">New York</option>
+                    <option value="North Carolina">North Carolina</option>
+                    <option value="North Dakota">North Dakota</option>
+                    <option value="Ohio">Ohio</option>
+                    <option value="Oklahoma">Oklahoma</option>
+                    <option value="Oregon">Oregon</option>
+                    <option value="Pennsylvania">Pennsylvania</option>
+                    <option value="Rhode Island">Rhode Island</option>
+                    <option value="South Carolina">South Carolina</option>
+                    <option value="South Dakota">South Dakota</option>
+                    <option value="Tennessee">Tennessee</option>
+                    <option value="Texas">Texas</option>
+                    <option value="Utah">Utah</option>
+                    <option value="Vermont">Vermont</option>
+                    <option value="Virginia">Virginia</option>
+                    <option value="Washington">Washington</option>
+                    <option value="West Virginia">West Virginia</option>
+                    <option value="Wisconsin">Wisconsin</option>
+                    <option value="Wyoming">Wyoming</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="Zip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="zip" name="zip">
+            </div>
+
+            <div class="col-md-12">
+                <label for="Address Notes" class="form-label" style="vertical-align: top;">Notes</label>
+                <textarea name="address_notes" class="form-control" id="address_notes" cols="30" rows="2" name="address_notes"></textarea> <br>
+            </div>
+
+            <div class="col-12" style="text-align: right;">
+                <span><input type="text" name="a_id" id="a_id" readonly style="border: none; text-align: right;"
+                        placeholder="Address ID"></span>
+            </div>
+
+            <div class="col-12" style="text-align: right;">
+                <button class="button button_primary" type="submit" value="Save">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
+        <h3 style="padding-bottom: 1rem;"><u><i>Address/Project 2</i></u></h3>
+        <form class="row g-3">
+            <div class="col-12">
+                <label for="Address1" class="form-label">Address 1</label>
+                <input type="text" class="form-control" name="address1" id="address1" placeholder="1234 Main St">
+            </div>
+            <div class="col-12">
+                <label for="Address2" class="form-label">Address 2</label>
+                <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="col-md-6">
+                <label for="City" class="form-label">City</label>
+                <input type="text" class="form-control" id="city" name="city">
+            </div>
+            <div class="col-md-4">
+                <label for="State" class="form-label">State</label>
+                <select id="state" class="form-select" name="state">
+                    <option selected>--Select State--</option>
+                    <Option value="Alabama">Alabama</Option>
+                    <option value="Alaska">Alaska</option>
+                    <option value="Arizona">Arizona</option>
+                    <option value="Arkansas">Arkansas</option>
+                    <option value="California">California</option>
+                    <option value="Colorado">Colorado</option>
+                    <option value="Connecticut">Connecticut</option>
+                    <option value="Delaware">Delaware</option>
+                    <option value="District of Columbia">District of Columbia</option>
+                    <option value="Florida">Florida</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Hawaii">Hawaii</option>
+                    <option value="Idaho">Idaho</option>
+                    <option value="Illinois">Illinois</option>
+                    <option value="Indiana">Indiana</option>
+                    <option value="Iowa">Iowa</option>
+                    <option value="Kansas">Kansas</option>
+                    <option value="Kentucky">Kentucky</option>
+                    <option value="Lousiana">Lousiana</option>
+                    <option value="Maine">Maine</option>
+                    <option value="Massachussetts">Massachussetts</option>
+                    <option value="Michigan">Michigan</option>
+                    <option value="Minnesota">Minnesota</option>
+                    <option value="Mississippi">Mississippi</option>
+                    <option value="Missouri">Missouri</option>
+                    <option value="Montana">Montana</option>
+                    <option value="Nebraska">Nebraska</option>
+                    <option value="Nevada">Nevada</option>
+                    <option value="New Hampshire">New Hampshire</option>
+                    <option value="New Jersey">New Jersey</option>
+                    <option value="New Mexico">New Mexico</option>
+                    <option value="New York">New York</option>
+                    <option value="North Carolina">North Carolina</option>
+                    <option value="North Dakota">North Dakota</option>
+                    <option value="Ohio">Ohio</option>
+                    <option value="Oklahoma">Oklahoma</option>
+                    <option value="Oregon">Oregon</option>
+                    <option value="Pennsylvania">Pennsylvania</option>
+                    <option value="Rhode Island">Rhode Island</option>
+                    <option value="South Carolina">South Carolina</option>
+                    <option value="South Dakota">South Dakota</option>
+                    <option value="Tennessee">Tennessee</option>
+                    <option value="Texas">Texas</option>
+                    <option value="Utah">Utah</option>
+                    <option value="Vermont">Vermont</option>
+                    <option value="Virginia">Virginia</option>
+                    <option value="Washington">Washington</option>
+                    <option value="West Virginia">West Virginia</option>
+                    <option value="Wisconsin">Wisconsin</option>
+                    <option value="Wyoming">Wyoming</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="Zip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="zip" name="zip">
+            </div>
+
+            <div class="col-md-12">
+                <label for="Address Notes" class="form-label" style="vertical-align: top;">Notes</label>
+                <textarea name="address_notes" class="form-control" id="address_notes" cols="30" rows="2" name="address_notes"></textarea> <br>
+            </div>
+
+            <div class="col-12" style="text-align: right;">
+                <span><input type="text" name="a_id" id="a_id" readonly style="border: none; text-align: right;"
+                    placeholder="Address ID"></span>
+            </div>
+
+            <div class="col-12" style="text-align: right;">
+                <button class="button button_primary" type="submit" value="Save">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
+        <h3 style="padding-bottom: 1rem;"><u><i>Address/Project 3</i></u></h3>
+        <form class="row g-3">
+            <div class="col-12">
+                <label for="Address1" class="form-label">Address 1</label>
+                <input type="text" class="form-control" name="address1" id="address1" placeholder="1234 Main St">
+            </div>
+            <div class="col-12">
+                <label for="Address2" class="form-label">Address 2</label>
+                <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="col-md-6">
+                <label for="City" class="form-label">City</label>
+                <input type="text" class="form-control" id="city" name="city">
+            </div>
+            <div class="col-md-4">
+                <label for="State" class="form-label">State</label>
+                <select id="state" class="form-select" name="state">
+                    <option selected>--Select State--</option>
+                    <Option value="Alabama">Alabama</Option>
+                    <option value="Alaska">Alaska</option>
+                    <option value="Arizona">Arizona</option>
+                    <option value="Arkansas">Arkansas</option>
+                    <option value="California">California</option>
+                    <option value="Colorado">Colorado</option>
+                    <option value="Connecticut">Connecticut</option>
+                    <option value="Delaware">Delaware</option>
+                    <option value="District of Columbia">District of Columbia</option>
+                    <option value="Florida">Florida</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Hawaii">Hawaii</option>
+                    <option value="Idaho">Idaho</option>
+                    <option value="Illinois">Illinois</option>
+                    <option value="Indiana">Indiana</option>
+                    <option value="Iowa">Iowa</option>
+                    <option value="Kansas">Kansas</option>
+                    <option value="Kentucky">Kentucky</option>
+                    <option value="Lousiana">Lousiana</option>
+                    <option value="Maine">Maine</option>
+                    <option value="Massachussetts">Massachussetts</option>
+                    <option value="Michigan">Michigan</option>
+                    <option value="Minnesota">Minnesota</option>
+                    <option value="Mississippi">Mississippi</option>
+                    <option value="Missouri">Missouri</option>
+                    <option value="Montana">Montana</option>
+                    <option value="Nebraska">Nebraska</option>
+                    <option value="Nevada">Nevada</option>
+                    <option value="New Hampshire">New Hampshire</option>
+                    <option value="New Jersey">New Jersey</option>
+                    <option value="New Mexico">New Mexico</option>
+                    <option value="New York">New York</option>
+                    <option value="North Carolina">North Carolina</option>
+                    <option value="North Dakota">North Dakota</option>
+                    <option value="Ohio">Ohio</option>
+                    <option value="Oklahoma">Oklahoma</option>
+                    <option value="Oregon">Oregon</option>
+                    <option value="Pennsylvania">Pennsylvania</option>
+                    <option value="Rhode Island">Rhode Island</option>
+                    <option value="South Carolina">South Carolina</option>
+                    <option value="South Dakota">South Dakota</option>
+                    <option value="Tennessee">Tennessee</option>
+                    <option value="Texas">Texas</option>
+                    <option value="Utah">Utah</option>
+                    <option value="Vermont">Vermont</option>
+                    <option value="Virginia">Virginia</option>
+                    <option value="Washington">Washington</option>
+                    <option value="West Virginia">West Virginia</option>
+                    <option value="Wisconsin">Wisconsin</option>
+                    <option value="Wyoming">Wyoming</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="Zip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="zip" name="zip">
+            </div>
+
+            <div class="col-md-12">
+                <label for="Address Notes" class="form-label" style="vertical-align: top;">Notes</label>
+                <textarea name="address_notes" class="form-control" id="address_notes" cols="30" rows="2" name="address_notes"></textarea> <br>
+            </div>
+
+            <div class="col-12" style="text-align: right;">
+                <span><input type="text" name="a_id" id="a_id" readonly style="border: none; text-align: right;"
+                    placeholder="Address ID"></span>
+            </div>
+
+            <div class="col-12" style="text-align: right;">
+                <button class="button button_primary" type="submit" value="Save">Save</button>
+            </div>
+        </form>
+    </div>

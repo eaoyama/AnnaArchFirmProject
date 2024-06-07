@@ -1,0 +1,62 @@
+
+    <div class="center" style="padding-top: 2rem;">
+        <h1>Anna's Architecture Firm</h1>
+        <h2>Meeting Scheduler</h2>
+    </div>
+
+    <div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
+        <p>* Required Field</p>
+
+        <form class="row g-3" action="" method="get">
+            
+        <div class="col-12">
+                <label for="Client ID" class="form-label">Client ID*</label>
+                <input type="number" class="form-control" id="c_id" name="c_id" required>
+            </div> 
+        
+            <div class="col-md-4">
+                <label for="Date" class="form-label">Date*</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+
+            <div class="col-md-4">
+                <label for="Start Time" class="form-label">Start Time*</label>
+                <input type="time" class="form-control" id="s_time" name="s_time" required>
+            </div>
+
+            <div class="col-md-4">
+                <label for="End Time" class="form-label">End Time*</label>
+                <input type="time" class="form-control" id="e_time" name="e_time" required>
+            </div>
+
+            <div class="col-12" style="text-align: left;">
+                <div id="warning" class="date-time-error-message">Please check the date and time for accuracy.</div>
+
+            </div>
+
+            <div class="col-md-12">
+                <label for="Location Time" class="form-label">Location</label>
+                <input type="text" class="form-control" id="location" name="location">
+            </div>
+
+            <div class="col-md-12">
+                <label for="Subject" class="form-label">Subject*</label>
+                <input type="text" class="form-control" id="subject" name="subject" required>
+            </div>
+
+            <div class="col-md-12">
+                <label for="Description" class="form-label" style="vertical-align: top;">Description</label>
+                <textarea name="description" class="form-control" id="description" cols="30" rows="2"></textarea>
+            </div>
+    
+            <div class="col-12" style="text-align: right;">
+                <span><input type="text" name="m_id" id="m_id" readonly style="border: none; text-align: right;" placeholder="Meeting ID"></span>
+            </div>
+
+            <div class="col-12" style="text-align: right;">
+                <button class="button button_primary" type="submit" id="saveButton" value="Save">Save</button>
+            </div>
+            
+    
+        </form>
+    </div>
