@@ -16,12 +16,12 @@ const routeConfig: Routes = [
         data: { title: 'Dashboard' } // Use 'data' instead of 'title'
       },
       {
-        path: 'client_profile',
+        path: `client_profile`,
         component: ClientProfileComponent,
-        data: { title: 'Create Client Profile' } // Use 'data' instead of 'title'
+        data: { title: `Create Client Profile` } // Use 'data' instead of 'title'
       },
       {
-        path: `schedule_meeting`,
+        path: 'schedule_meeting',
         component: ScheduleMeetingComponent,
         data: { title: `Schedule Meetings`}
       }
