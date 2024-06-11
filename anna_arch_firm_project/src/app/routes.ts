@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeSignInComponent } from './home-sign-in/home-sign-in.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ClientProfileComponent } from './client-profile/client-profile.component';
+import { ClientProfilePageComponent } from './client-profile/client-profile.component';
 import { ScheduleMeetingComponent } from './schedule-meeting/schedule-meeting.component';
 
 const routeConfig: Routes = [
@@ -16,14 +16,14 @@ const routeConfig: Routes = [
         data: { title: 'Dashboard' } // Use 'data' instead of 'title'
       },
       {
-        path: `client_profile`,
-        component: ClientProfileComponent,
-        data: { title: `Create Client Profile` } // Use 'data' instead of 'title'
+        path: 'client_profile',
+        component: ClientProfilePageComponent,
+        data: { title: 'Create Client Profile' } // Use 'data' instead of 'title'
       },
       {
         path: 'schedule_meeting',
         component: ScheduleMeetingComponent,
-        data: { title: `Schedule Meetings`}
+        data: { title: 'Schedule Meetings'}
       }
 
 ];

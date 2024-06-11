@@ -7,50 +7,58 @@
     <div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
         <p>* Required Field</p>
 
-        <form class="row g-3" action="" method="get">
+        <form class="row g-3" action="" method="get" #meeting="ngForm">
             
         <div class="col-12">
                 <label for="Client ID" class="form-label">Client ID*</label>
-                <input type="number" class="form-control" id="c_id" name="c_id" required>
+                <input type="number" class="form-control" id="c_id" name="c_id" required
+                [(ngModel)]="model.c_id" #c_id="ngModel" >
             </div> 
         
             <div class="col-md-4">
                 <label for="Date" class="form-label">Date*</label>
-                <input type="date" class="form-control" id="date" name="date" required>
+                <input type="date" class="form-control" id="date" name="date" required 
+                [(ngModel)]="model.date" #date="ngModel" >
             </div>
 
             <div class="col-md-4">
                 <label for="Start Time" class="form-label">Start Time*</label>
-                <input type="time" class="form-control" id="s_time" name="s_time" required>
+                <input type="time" class="form-control" id="s_time" name="s_time" required
+                [(ngModel)]="model.s_time" #s_time="ngModel" >
             </div>
 
             <div class="col-md-4">
                 <label for="End Time" class="form-label">End Time*</label>
-                <input type="time" class="form-control" id="e_time" name="e_time" required>
+                <input type="time" class="form-control" id="e_time" name="e_time" required
+                [(ngModel)]="model.e_time" #e_time="ngModel" >
             </div>
 
-            <div class="col-12" style="text-align: left;">
-                <div id="warning" class="date-time-error-message">Please check the date and time for accuracy.</div>
-
+            <div class="col-12" style="text-align: left;" id="warning" class="date-time-error-message">
+                Please check the date and time for accuracy.
             </div>
 
             <div class="col-md-12">
                 <label for="Location Time" class="form-label">Location</label>
-                <input type="text" class="form-control" id="location" name="location">
+                <input type="text" class="form-control" id="location" name="location"[(ngModel)]="model.location" #location="ngModel" >
             </div>
 
             <div class="col-md-12">
                 <label for="Subject" class="form-label">Subject*</label>
-                <input type="text" class="form-control" id="subject" name="subject" required>
+                <input type="text" class="form-control" id="subject" name="subject" required
+                [(ngModel)]="model.subject" #subject="ngModel" >
             </div>
 
             <div class="col-md-12">
                 <label for="Description" class="form-label" style="vertical-align: top;">Description</label>
-                <textarea name="description" class="form-control" id="description" cols="30" rows="2"></textarea>
+                <textarea name="description" class="form-control" id="description" cols="30" rows="2"
+                [(ngModel)]="model.description" #description="ngModel" >
+            </textarea>
             </div>
     
             <div class="col-12" style="text-align: right;">
-                <span><input type="text" name="m_id" id="m_id" readonly style="border: none; text-align: right;" placeholder="Meeting ID"></span>
+                <span><input type="text" name="m_id" id="m_id" readonly style="border: none; text-align: right;" placeholder="Meeting ID"
+                    [(ngModel)]="model.m_id" #m_id="ngModel" >
+                </span>
             </div>
 
             <div class="col-12" style="text-align: right;">
