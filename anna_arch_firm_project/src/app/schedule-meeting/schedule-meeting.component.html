@@ -1,5 +1,4 @@
-
-    <div class="center" style="padding-top: 2rem;">
+<div class="center" style="padding-top: 2rem;">
         <h1>Anna's Architecture Firm</h1>
         <h2>Meeting Scheduler</h2>
     </div>
@@ -7,8 +6,7 @@
     <div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
         <p>* Required Field</p>
 
-        <form class="row g-3" action="" method="get" #meeting="ngForm">
-            
+        <form class="row g-3" action="" method="get" #meeting="ngForm" (ngSubmit)="onSubmit(meeting)">            
         <div class="col-12">
                 <label for="Client ID" class="form-label">Client ID*</label>
                 <input type="number" class="form-control" id="c_id" name="c_id" required
@@ -19,18 +17,27 @@
                 <label for="Date" class="form-label">Date*</label>
                 <input type="date" class="form-control" id="date" name="date" required 
                 [(ngModel)]="model.date" #date="ngModel" >
+                <div role="alert" style="color: red;" [hidden]="date.valid || date.pristine">
+                    **Date is required.**
+                </div>
             </div>
 
             <div class="col-md-4">
                 <label for="Start Time" class="form-label">Start Time*</label>
                 <input type="time" class="form-control" id="s_time" name="s_time" required
                 [(ngModel)]="model.s_time" #s_time="ngModel" >
+                <div role="alert" style="color: red;" [hidden]="s_time.valid || s_time.pristine">
+                    **Start Time is required.**
+                </div>
             </div>
 
             <div class="col-md-4">
                 <label for="End Time" class="form-label">End Time*</label>
                 <input type="time" class="form-control" id="e_time" name="e_time" required
                 [(ngModel)]="model.e_time" #e_time="ngModel" >
+                <div role="alert" style="color: red;" [hidden]="e_time.valid || e_time.pristine">
+                    **End Time is required.**
+                </div>
             </div>
 
             <div class="col-12" style="text-align: left;" id="warning" class="date-time-error-message">
@@ -38,14 +45,17 @@
             </div>
 
             <div class="col-md-12">
-                <label for="Location Time" class="form-label">Location</label>
-                <input type="text" class="form-control" id="location" name="location"[(ngModel)]="model.location" #location="ngModel" >
+                <label for="Location" class="form-label">Location</label>
+                <input type="text" class="form-control" id="location" name="location" [(ngModel)]="model.location" #location="ngModel" >
             </div>
 
             <div class="col-md-12">
                 <label for="Subject" class="form-label">Subject*</label>
                 <input type="text" class="form-control" id="subject" name="subject" required
                 [(ngModel)]="model.subject" #subject="ngModel" >
+                <div role="alert" style="color: red;" [hidden]="subject.valid || subject.pristine">
+                    **Subject is required.**
+                </div>
             </div>
 
             <div class="col-md-12">
@@ -62,9 +72,19 @@
             </div>
 
             <div class="col-12" style="text-align: right;">
-                <button class="button button_primary" type="submit" id="saveButton" value="Save">Save</button>
+                <button class="button" type="submit" id="saveButton" value="Save"
+                [ngClass]="{
+                    'button button_primary': meeting.valid,
+                    'button button_invalid': !meeting.valid
+                }"
+            [disabled]="!meeting.form.valid">
+                Save</button>
             </div>
             
-    
+            <div class="col-12" style="text-align: right; font-size: 10px;">
+            <button class="button button_secondary" type="button" (click)="newMeeting(meeting)">
+                Reset and Schedule New Meeting
+            </button>
+            </div>
         </form>
     </div>

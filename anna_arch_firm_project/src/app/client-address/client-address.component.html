@@ -1,0 +1,136 @@
+<!-- Address/Project 1 -->
+<div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
+    <h3 style="padding-bottom: 1rem;"><u><i>Address/Project 1</i></u></h3>
+    <form class="row g-3" #clientAddress1Instance="ngForm" (ngSubmit)="ClientAddress1Instance.onSubmit()">
+        <input type="number" name="c_id" id="c_id" readonly style="border: none; text-align: right;" hidden
+            [(ngModel)]="ClientAddress1Instance.model.c_id" #c_id="ngModel">
+        <div class="col-12">
+            <label for="address1" class="form-label">Address 1</label>
+            <input type="text" class="form-control" name="address1" id="address1" placeholder="1234 Main St" required=""
+            [(ngModel)]="ClientAddress1Instance.model.address1" #address1="ngModel">
+        </div>
+        <div class="col-12">
+            <label for="address2" class="form-label">Address 2</label>
+            <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment, studio, or floor"
+            [(ngModel)]="ClientAddress1Instance.model.address2" #address2="ngModel">
+        </div>
+        <div class="col-md-6">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city" name="city" required=""
+            [(ngModel)]="ClientAddress1Instance.model.city" #city="ngModel">
+        </div>
+        <div class="col-md-4">
+            <label for="state" class="form-label">State</label>
+            <select id="state" class="form-select" name="state" [(ngModel)]="ClientAddress1Instance.model.state" #state="ngModel" required>
+                <option value="" disabled>--Select State--</option>
+                <option *ngFor="let state of ClientAddress1Instance.states" [value]="state">{{state}}</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label for="zip" class="form-label">Zip</label>
+            <input type="text" class="form-control" id="zip" name="zip" [(ngModel)]="ClientAddress1Instance.model.zip" #zip="ngModel" required>
+        </div>
+        <div class="col-12" style="text-align: right;">
+            <button class="button" type="submit" id="saveButton" value="Save"
+            [ngClass]="{
+                'button button_primary': clientAddress1Instance.valid,
+                'button button_invalid': !clientAddress1Instance.valid
+            }"
+        [disabled]="!clientAddress1Instance.form.valid">
+        Save</button>
+        </div>
+        <!-- <div class="col-12" style="text-align: right; font-size: 10px;">
+            <button class="button button_secondary" type="button" (click)="newAddress(clientProfileInstance)">
+                Reset and Create New Client
+            </button>
+            </div> -->
+    </form>
+</div>
+
+<!-- Address/Project 2 -->
+<div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
+    <h3 style="padding-bottom: 1rem;"><u><i>Address/Project 2</i></u></h3>
+    <form class="row g-3" #clientAddress2Instance="ngForm" (ngSubmit)="ClientAddress2Instance.onSubmit()">
+        <input type="number" name="c_id" id="c_id" readonly style="border: none; text-align: right;" hidden
+            [(ngModel)]="ClientAddress2Instance.model.c_id" #c_id="ngModel">
+        <div class="col-12">
+            <label for="address1" class="form-label">Address 1</label>
+            <input type="text" class="form-control" name="address1" id="address1" placeholder="1234 Main St" required
+            [(ngModel)]="ClientAddress2Instance.model.address1" #address1="ngModel">
+        </div> 
+        <div class="col-12">
+            <label for="address2" class="form-label">Address 2</label>
+            <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment, studio, or floor"
+            [(ngModel)]="ClientAddress2Instance.model.address2" #address2="ngModel">
+        </div>
+        <div class="col-md-6">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city" name="city" required
+            [(ngModel)]="ClientAddress2Instance.model.city" #city="ngModel">
+        </div>
+        <div class="col-md-4">
+            <label for="state" class="form-label">State</label>
+            <select id="state" class="form-select" name="state" [(ngModel)]="ClientAddress2Instance.model.state" #state="ngModel" required>
+                <option value="" disabled>--Select State--</option>
+                <option *ngFor="let state of ClientAddress2Instance.states" [value]="state">{{state}}</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label for="zip" class="form-label">Zip</label>
+            <input type="text" class="form-control" id="zip" name="zip" [(ngModel)]="ClientAddress2Instance.model.zip" #zip="ngModel" required>
+        </div>
+        <div class="col-12" style="text-align: right;">
+            <button class="button" type="submit" id="saveButton" value="Save"
+            [ngClass]="{
+                'button button_primary': clientAddress2Instance.valid,
+                'button button_invalid': !clientAddress2Instance.valid
+            }"
+        [disabled]="!clientAddress2Instance.form.valid">
+        Save</button>
+        </div>
+    </form>
+</div>
+
+<!-- Address/Project 3 -->
+<div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
+    <h3 style="padding-bottom: 1rem;"><u><i>Address/Project 3</i></u></h3>
+    <form class="row g-3" #clientAddress3Instance="ngForm" (ngSubmit)="ClientAddress3Instance.onSubmit()">
+        <input type="number" name="c_id" id="c_id" readonly style="border: none; text-align: right;" hidden
+            [(ngModel)]="ClientAddress3Instance.model.c_id" #c_id="ngModel">
+        <div class="col-12">
+            <label for="address1" class="form-label">Address 1</label>
+            <input type="text" class="form-control" name="address1" id="address1" placeholder="1234 Main St" required
+            [(ngModel)]="ClientAddress3Instance.model.address1" #address1="ngModel">
+        </div>
+        <div class="col-12">
+            <label for="address2" class="form-label">Address 2</label>
+            <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment, studio, or floor"
+            [(ngModel)]="ClientAddress3Instance.model.address2" #address2="ngModel">
+        </div>
+        <div class="col-md-6">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city" name="city" required
+            [(ngModel)]="ClientAddress3Instance.model.city" #city="ngModel">
+        </div>
+        <div class="col-md-4">
+            <label for="state" class="form-label">State</label>
+            <select id="state" class="form-select" name="state" [(ngModel)]="ClientAddress3Instance.model.state" #state="ngModel" required>
+                <option value="" disabled>--Select State--</option>
+                <option *ngFor="let state of ClientAddress3Instance.states" [value]="state">{{state}}</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label for="zip" class="form-label">Zip</label>
+            <input type="text" class="form-control" id="zip" name="zip" [(ngModel)]="ClientAddress3Instance.model.zip" #zip="ngModel" required>
+        </div>
+        <div class="col-12" style="text-align: right;">
+            <button class="button" type="submit" id="saveButton" value="Save"
+            [ngClass]="{
+                'button button_primary': clientAddress3Instance.valid,
+                'button button_invalid': !clientAddress3Instance.valid
+            }"
+        [disabled]="!clientAddress3Instance.form.valid">
+        Save</button>
+        </div>
+    </form>
+</div>

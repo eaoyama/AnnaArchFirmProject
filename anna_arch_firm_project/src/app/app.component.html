@@ -1,16 +1,17 @@
-<!-- [hidden]=" insert code here to hide only on homecomponent route -->
-<nav class="navbar navbar-expand-lg  sticky-top bg-body-tertiary">
+<nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary" [ngClass]="{'d-none': router.url === '/home_signin'}">
     <div class="container-fluid">
         <div style="margin: 0rem 2rem 0rem 0rem;">
             <img src="https://www.simplilearn.com/ice9/new_logo.svgz" alt="Annas Arch Firm logo" width="200px"
                 height="auto">
         </div>
-        
+                
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/" routerLinkActive="active"

@@ -13,27 +13,27 @@
         </div>
     </div>
 
-    <form class="row g-3" style="padding-top: 1rem;" #clientProfileInstance="ngForm">
+    <form class="row g-3" action="" method="get" style="padding-top: 1rem;" #clientProfileInstance="ngForm" (ngSubmit)="onSubmit(clientProfileInstance)">
         <div class="col-md-4">
             <label for="f_name" class="form-label">First Name*</label>
             <input type="text" class="form-control" id="f_name" name="f_name" minlength="1" required
-                [(ngModel)]="ClientProfileInstance.model.f_name" #f_name="ngModel">
+                [(ngModel)]="model.f_name" #f_name="ngModel">
             <div role="alert" style="color: red;" [hidden]="f_name.valid || f_name.pristine">
                **First name is required.**
             </div>
         </div>
         <div class="col-md-3">
             <label for="m_name" class="form-label">Middle Name</label>
-            <input type="text" class="form-control" id="m_name" name="m_name" [(ngModel)]="ClientProfileInstance.model.m_name" #m_name="ngModel">
+            <input type="text" class="form-control" id="m_name" name="m_name" [(ngModel)]="model.m_name" #m_name="ngModel">
         </div>
         <div class="col-md-5">
             <label for="l_name" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="l_name" name="l_name" [(ngModel)]="ClientProfileInstance.model.l_name" #l_name="ngModel">
+            <input type="text" class="form-control" id="l_name" name="l_name" [(ngModel)]="model.l_name" #l_name="ngModel">
         </div>
 
         <div class="col-md-6">
             <label for="email" class="form-label">Email Address*</label>
-            <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="ClientProfileInstance.model.email" #email="ngModel">
+            <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="model.email" #email="ngModel">
             <div role="alert" style="color: red;" [hidden]="email.valid || email.pristine">
                 **Email address is required.**
             </div>
@@ -42,283 +42,37 @@
         <div class="col-md-6">
             <label for="phone" class="form-label">Phone Number (format: xxx-xxx-xxxx)</label>
             <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
-            [(ngModel)]="ClientProfileInstance.model.phone" #phone="ngModel">
+            [(ngModel)]="model.phone" #phone="ngModel">
         </div>
 
         <div class="col-md-12">
             <label for="profile_notes" class="form-label" style="vertical-align: top;">Notes</label>
-            <textarea name="profile_notes" class="form-control" id="profile_notes" cols="30" rows="2" [(ngModel)]="ClientProfileInstance.model.profile_notes" #profile_notes="ngModel"></textarea>
+            <textarea name="profile_notes" class="form-control" id="profile_notes" cols="30" rows="2" [(ngModel)]="model.profile_notes" #profile_notes="ngModel"></textarea>
             <br>
         </div>
 
         <div class="col-12" style="text-align: right;">
             <input type="text" name="c_id" id="c_id" readonly style="border: none; text-align: right;" placeholder="Client ID"
-                [(ngModel)]="ClientProfileInstance.model.c_id" #c_id="ngModel">
+                [(ngModel)]="model.c_id" #c_id="ngModel">
         </div>
 
         <div class="col-12" style="text-align: right;">
-            <button class="button button_primary" type="submit" id="saveButton" value="Save">Save</button>
+            <button class="button" type="submit" id="saveButton" value="Save" 
+            [ngClass]="{
+                'button button_primary': clientProfileInstance.valid,
+                'button button_invalid': !clientProfileInstance.valid
+            }"
+        [disabled]="!clientProfileInstance.form.valid">
+        Save</button>
+        </div>
+        <div class="col-12" style="text-align: right; font-size: 10px;">
+        <button class="button button_secondary" type="button" (click)="newClient(clientProfileInstance)">
+            Reset and Create New Client
+        </button>
         </div>
     </form>
 </div>
 
-<!-- Address/Project 1 -->
-<div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
-    <h3 style="padding-bottom: 1rem;"><u><i>Address/Project 1</i></u></h3>
-    <form class="row g-3" #clientAddress1Instance="ngForm">
-        <input type="number" name="c_id" id="c_id" readonly style="border: none; text-align: right;" hidden
-            [(ngModel)]="ClientAddress1Instance.model.c_id" #c_id="ngModel">
-        <div class="col-12">
-            <label for="address1" class="form-label">Address 1</label>
-            <input type="text" class="form-control" name="address1" id="address1" placeholder="1234 Main St"
-            [(ngModel)]="ClientAddress1Instance.model.address1" #address1="ngModel">
-        </div>
-        <div class="col-12">
-            <label for="address2" class="form-label">Address 2</label>
-            <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment, studio, or floor"
-            [(ngModel)]="ClientAddress1Instance.model.address2" #address2="ngModel">
-        </div>
-        <div class="col-md-6">
-            <label for="city" class="form-label">City</label>
-            <input type="text" class="form-control" id="city" name="city"
-            [(ngModel)]="ClientAddress1Instance.model.city" #city="ngModel">
-        </div>
-        <div class="col-md-4">
-            <label for="state" class="form-label">State</label>
-            <select id="state" class="form-select" name="state" [(ngModel)]="ClientAddress1Instance.model.state" #state="ngModel">
-                <option selected>--Select State--</option>
-                <option value="Alabama">Alabama</option>
-                <option value="Alaska">Alaska</option>
-                <option value="Arizona">Arizona</option>
-                <option value="Arkansas">Arkansas</option>
-                <option value="California">California</option>
-                <option value="Colorado">Colorado</option>
-                <option value="Connecticut">Connecticut</option>
-                <option value="Delaware">Delaware</option>
-                <option value="District of Columbia">District of Columbia</option>
-                <option value="Florida">Florida</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Hawaii">Hawaii</option>
-                <option value="Idaho">Idaho</option>
-                <option value="Illinois">Illinois</option>
-                <option value="Indiana">Indiana</option>
-                <option value="Iowa">Iowa</option>
-                <option value="Kansas">Kansas</option>
-                <option value="Kentucky">Kentucky</option>
-                <option value="Louisiana">Louisiana</option>
-                <option value="Maine">Maine</option>
-                <option value="Massachusetts">Massachusetts</option>
-                <option value="Michigan">Michigan</option>
-                <option value="Minnesota">Minnesota</option>
-                <option value="Mississippi">Mississippi</option>
-                <option value="Missouri">Missouri</option>
-                <option value="Montana">Montana</option>
-                <option value="Nebraska">Nebraska</option>
-                <option value="Nevada">Nevada</option>
-                <option value="New Hampshire">New Hampshire</option>
-                <option value="New Jersey">New Jersey</option>
-                <option value="New Mexico">New Mexico</option>
-                <option value="New York">New York</option>
-                <option value="North Carolina">North Carolina</option>
-                <option value="North Dakota">North Dakota</option>
-                <option value="Ohio">Ohio</option>
-                <option value="Oklahoma">Oklahoma</option>
-                <option value="Oregon">Oregon</option>
-                <option value="Pennsylvania">Pennsylvania</option>
-                <option value="Rhode Island">Rhode Island</option>
-                <option value="South Carolina">South Carolina</option>
-                <option value="South Dakota">South Dakota</option>
-                <option value="Tennessee">Tennessee</option>
-                <option value="Texas">Texas</option>
-                <option value="Utah">Utah</option>
-                <option value="Vermont">Vermont</option>
-                <option value="Virginia">Virginia</option>
-                <option value="Washington">Washington</option>
-                <option value="West Virginia">West Virginia</option>
-                <option value="Wisconsin">Wisconsin</option>
-                <option value="Wyoming">Wyoming</option>
-            </select>
-        </div>
-        <div class="col-md-2">
-            <label for="zip" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="zip" name="zip" [(ngModel)]="ClientAddress1Instance.model.zip" #zip="ngModel">
-        </div>
-        <div class="col-12" style="text-align: right;">
-            <button class="button button_primary" type="submit" id="saveButton" value="Save">Save</button>
-        </div>
-    </form>
-</div>
-
-<!-- Address/Project 2 -->
-<div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
-    <h3 style="padding-bottom: 1rem;"><u><i>Address/Project 2</i></u></h3>
-    <form class="row g-3" #clientAddress2Instance="ngForm">
-        <input type="number" name="c_id" id="c_id" readonly style="border: none; text-align: right;" hidden
-            [(ngModel)]="ClientAddress2Instance.model.c_id" #c_id="ngModel">
-        <div class="col-12">
-            <label for="address1" class="form-label">Address 1</label>
-            <input type="text" class="form-control" name="address1" id="address1" placeholder="1234 Main St"
-            [(ngModel)]="ClientAddress2Instance.model.address1" #address1="ngModel">
-        </div>
-        <div class="col-12">
-            <label for="address2" class="form-label">Address 2</label>
-            <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment, studio, or floor"
-            [(ngModel)]="ClientAddress2Instance.model.address2" #address2="ngModel">
-        </div>
-        <div class="col-md-6">
-            <label for="city" class="form-label">City</label>
-            <input type="text" class="form-control" id="city" name="city"
-            [(ngModel)]="ClientAddress2Instance.model.city" #city="ngModel">
-        </div>
-        <div class="col-md-4">
-            <label for="state" class="form-label">State</label>
-            <select id="state" class="form-select" name="state" [(ngModel)]="ClientAddress2Instance.model.state" #state="ngModel">
-                <option selected>--Select State--</option>
-                <option value="Alabama">Alabama</option>
-                <option value="Alaska">Alaska</option>
-                <option value="Arizona">Arizona</option>
-                <option value="Arkansas">Arkansas</option>
-                <option value="California">California</option>
-                <option value="Colorado">Colorado</option>
-                <option value="Connecticut">Connecticut</option>
-                <option value="Delaware">Delaware</option>
-                <option value="District of Columbia">District of Columbia</option>
-                <option value="Florida">Florida</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Hawaii">Hawaii</option>
-                <option value="Idaho">Idaho</option>
-                <option value="Illinois">Illinois</option>
-                <option value="Indiana">Indiana</option>
-                <option value="Iowa">Iowa</option>
-                <option value="Kansas">Kansas</option>
-                <option value="Kentucky">Kentucky</option>
-                <option value="Louisiana">Louisiana</option>
-                <option value="Maine">Maine</option>
-                <option value="Massachusetts">Massachusetts</option>
-                <option value="Michigan">Michigan</option>
-                <option value="Minnesota">Minnesota</option>
-                <option value="Mississippi">Mississippi</option>
-                <option value="Missouri">Missouri</option>
-                <option value="Montana">Montana</option>
-                <option value="Nebraska">Nebraska</option>
-                <option value="Nevada">Nevada</option>
-                <option value="New Hampshire">New Hampshire</option>
-                <option value="New Jersey">New Jersey</option>
-                <option value="New Mexico">New Mexico</option>
-                <option value="New York">New York</option>
-                <option value="North Carolina">North Carolina</option>
-                <option value="North Dakota">North Dakota</option>
-                <option value="Ohio">Ohio</option>
-                <option value="Oklahoma">Oklahoma</option>
-                <option value="Oregon">Oregon</option>
-                <option value="Pennsylvania">Pennsylvania</option>
-                <option value="Rhode Island">Rhode Island</option>
-                <option value="South Carolina">South Carolina</option>
-                <option value="South Dakota">South Dakota</option>
-                <option value="Tennessee">Tennessee</option>
-                <option value="Texas">Texas</option>
-                <option value="Utah">Utah</option>
-                <option value="Vermont">Vermont</option>
-                <option value="Virginia">Virginia</option>
-                <option value="Washington">Washington</option>
-                <option value="West Virginia">West Virginia</option>
-                <option value="Wisconsin">Wisconsin</option>
-                <option value="Wyoming">Wyoming</option>
-            </select>
-        </div>
-        <div class="col-md-2">
-            <label for="zip" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="zip" name="zip" [(ngModel)]="ClientAddress2Instance.model.zip" #zip="ngModel">
-        </div>
-        <div class="col-12" style="text-align: right;">
-            <button class="button button_primary" type="submit" id="saveButton" value="Save">Save</button>
-        </div>
-    </form>
-</div>
-
-<!-- Address/Project 3 -->
-<div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
-    <h3 style="padding-bottom: 1rem;"><u><i>Address/Project 3</i></u></h3>
-    <form class="row g-3" #clientAddress3Instance="ngForm">
-        <input type="number" name="c_id" id="c_id" readonly style="border: none; text-align: right;" hidden
-            [(ngModel)]="ClientAddress3Instance.model.c_id" #c_id="ngModel">
-        <div class="col-12">
-            <label for="address1" class="form-label">Address 1</label>
-            <input type="text" class="form-control" name="address1" id="address1" placeholder="1234 Main St"
-            [(ngModel)]="ClientAddress3Instance.model.address1" #address1="ngModel">
-        </div>
-        <div class="col-12">
-            <label for="address2" class="form-label">Address 2</label>
-            <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment, studio, or floor"
-            [(ngModel)]="ClientAddress3Instance.model.address2" #address2="ngModel">
-        </div>
-        <div class="col-md-6">
-            <label for="city" class="form-label">City</label>
-            <input type="text" class="form-control" id="city" name="city"
-            [(ngModel)]="ClientAddress3Instance.model.city" #city="ngModel">
-        </div>
-        <div class="col-md-4">
-            <label for="state" class="form-label">State</label>
-            <select id="state" class="form-select" name="state" [(ngModel)]="ClientAddress3Instance.model.state" #state="ngModel">
-                <option selected>--Select State--</option>
-                <option value="Alabama">Alabama</option>
-                <option value="Alaska">Alaska</option>
-                <option value="Arizona">Arizona</option>
-                <option value="Arkansas">Arkansas</option>
-                <option value="California">California</option>
-                <option value="Colorado">Colorado</option>
-                <option value="Connecticut">Connecticut</option>
-                <option value="Delaware">Delaware</option>
-                <option value="District of Columbia">District of Columbia</option>
-                <option value="Florida">Florida</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Hawaii">Hawaii</option>
-                <option value="Idaho">Idaho</option>
-                <option value="Illinois">Illinois</option>
-                <option value="Indiana">Indiana</option>
-                <option value="Iowa">Iowa</option>
-                <option value="Kansas">Kansas</option>
-                <option value="Kentucky">Kentucky</option>
-                <option value="Louisiana">Louisiana</option>
-                <option value="Maine">Maine</option>
-                <option value="Massachusetts">Massachusetts</option>
-                <option value="Michigan">Michigan</option>
-                <option value="Minnesota">Minnesota</option>
-                <option value="Mississippi">Mississippi</option>
-                <option value="Missouri">Missouri</option>
-                <option value="Montana">Montana</option>
-                <option value="Nebraska">Nebraska</option>
-                <option value="Nevada">Nevada</option>
-                <option value="New Hampshire">New Hampshire</option>
-                <option value="New Jersey">New Jersey</option>
-                <option value="New Mexico">New Mexico</option>
-                <option value="New York">New York</option>
-                <option value="North Carolina">North Carolina</option>
-                <option value="North Dakota">North Dakota</option>
-                <option value="Ohio">Ohio</option>
-                <option value="Oklahoma">Oklahoma</option>
-                <option value="Oregon">Oregon</option>
-                <option value="Pennsylvania">Pennsylvania</option>
-                <option value="Rhode Island">Rhode Island</option>
-                <option value="South Carolina">South Carolina</option>
-                <option value="South Dakota">South Dakota</option>
-                <option value="Tennessee">Tennessee</option>
-                <option value="Texas">Texas</option>
-                <option value="Utah">Utah</option>
-                <option value="Vermont">Vermont</option>
-                <option value="Virginia">Virginia</option>
-                <option value="Washington">Washington</option>
-                <option value="West Virginia">West Virginia</option>
-                <option value="Wisconsin">Wisconsin</option>
-                <option value="Wyoming">Wyoming</option>
-            </select>
-        </div>
-        <div class="col-md-2">
-            <label for="zip" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="zip" name="zip" [(ngModel)]="ClientAddress3Instance.model.zip" #zip="ngModel">
-        </div>
-        <div class="col-12" style="text-align: right;">
-            <button class="button button_primary" type="submit" id="saveButton" value="Save">Save</button>
-        </div>
-    </form>
+<div>
+<app-client-address></app-client-address>
 </div>

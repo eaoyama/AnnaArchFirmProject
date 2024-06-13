@@ -1,7 +1,5 @@
 export class Meeting {
 
-
-
     constructor(
         //access modifier             //nameOfField                  //dataType
         public                        c_id                         : number,
