@@ -1,0 +1,78 @@
+<div class="center" style="padding-top: 2rem;">
+    <h1>Anna's Architecture Firm</h1>
+    <h2>Client Profile Creation</h2>
+</div>
+
+<div class="form-centered form-border" style="width: 60rem; margin-top: 2rem;">
+    <p>* Required Field</p>
+
+    <div class="header">
+        <h3 style="display: inline;"><u><i>Client Contact Information</i></u></h3>
+        <div style="padding-left: 2rem; display: inline;">
+            <a routerLink="/schedule_meeting" routerLinkActive="active">Schedule a meeting with this client.</a>
+        </div>
+    </div>
+
+    <form class="row g-3" action="" method="get" style="padding-top: 1rem;" #clientProfileInstance="ngForm" (ngSubmit)="onSubmit(clientProfileInstance)">
+        <div class="col-md-4">
+            <label for="f_name" class="form-label">First Name*</label>
+            <input type="text" class="form-control" id="f_name" name="f_name" minlength="1" required
+                [(ngModel)]="model.f_name" #f_name="ngModel">
+            <div role="alert" style="color: red;" [hidden]="f_name.valid || f_name.pristine">
+               **First name is required.**
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="m_name" class="form-label">Middle Name</label>
+            <input type="text" class="form-control" id="m_name" name="m_name" [(ngModel)]="model.m_name" #m_name="ngModel">
+        </div>
+        <div class="col-md-5">
+            <label for="l_name" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="l_name" name="l_name" [(ngModel)]="model.l_name" #l_name="ngModel">
+        </div>
+
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email Address*</label>
+            <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="model.email" #email="ngModel">
+            <div role="alert" style="color: red;" [hidden]="email.valid || email.pristine">
+                **Email address is required.**
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="phone" class="form-label">Phone Number (format: xxx-xxx-xxxx)</label>
+            <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+            [(ngModel)]="model.phone" #phone="ngModel">
+        </div>
+
+        <div class="col-md-12">
+            <label for="profile_notes" class="form-label" style="vertical-align: top;">Notes</label>
+            <textarea name="profile_notes" class="form-control" id="profile_notes" cols="30" rows="2" [(ngModel)]="model.profile_notes" #profile_notes="ngModel"></textarea>
+            <br>
+        </div>
+
+        <div class="col-12" style="text-align: right;">
+            <input type="text" name="c_id" id="c_id" readonly style="border: none; text-align: right;" placeholder="Client ID"
+                [(ngModel)]="model.c_id" #c_id="ngModel">
+        </div>
+
+        <div class="col-12" style="text-align: right;">
+            <button class="button" type="submit" id="saveButton" value="Save" 
+            [ngClass]="{
+                'button button_primary': clientProfileInstance.valid,
+                'button button_invalid': !clientProfileInstance.valid
+            }"
+        [disabled]="!clientProfileInstance.form.valid">
+        Save</button>
+        </div>
+        <div class="col-12" style="text-align: right; font-size: 10px;">
+        <button class="button button_secondary" type="button" (click)="newClient(clientProfileInstance)">
+            Reset and Create New Client
+        </button>
+        </div>
+    </form>
+</div>
+
+<div>
+<app-client-address></app-client-address>
+</div>

@@ -1,1 +1,74 @@
-<p>client-form works!</p>
+<!-- <p>client-form works!</p> -->
+<div class="container">
+
+  <h1>Client Form</h1>
+
+  <form #clientForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="id" class="form-label">Client ID</label>
+      <input type="number" class="form-control" id="id" required name="id" [(ngModel)]="model.id">
+      TODO: remove this: {{ model.id}}
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" required name="name" [(ngModel)]="model.name" #name="ngModel">
+      TODO: remove this: {{ model.name}}
+      <div class="alert alert-danger" role="alert" [hidden]="name.valid || name.pristine">
+        Name is Required!
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required
+          [(ngModel)]="model.email" #email="ngModel">
+        TODO: remove this: {{model.email}}
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <div class="alert alert-danger" role="alert" [hidden]="email.valid || email.pristine">
+          Name is Required!
+        </div>
+  
+      </div>
+      <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <input type="text" class="form-control" id="address" name="address" required [(ngModel)]="model.address" #address="ngModel">
+        TODO: remove this: {{model.address}}
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="model.password" #password="ngModel">
+        <div class="alert alert-danger" role="alert" [hidden]="password.valid || password.pristine">
+        Password you entered: {{model.password}}
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!clientForm.form.valid">Submit</button>
+  </form>
+</div>
+
+<!-- <div class="container">
+    <h1>Client Form</h1>
+    <form #clientForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name"
+            [(ngModel)]="model.name" name="name" required #name="ngModel">
+              <div class="alert alert-danger" role="alert" [hidden]="name.valid || name.pristine">
+                Name is Required!
+              </div>
+          </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+          [(ngModel)]="model.email" email="email" required #email="ngModel">
+          TODO: remove this:  {{model.email}}
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <div class="alert alert-danger" role="alert" [hidden]="email.valid || email.pristine">
+            Email is Required!
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password"
+          [(ngModel)]="model.password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!clientForm.form.valid">Submit</button>
+      </form>
+    </div> -->

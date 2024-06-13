@@ -50,6 +50,15 @@ button {
   font-family: Verdana, Geneva, Tahoma, sans-serif !important;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border .15s ease-in-out, border-color .15s ease-in-out,;
 }
+
+.button_invalid {
+  color: gray !important;
+  background-color: #fff !important;
+  border-color: gray !important;
+  border: solid 1px;
+  cursor: not-allowed !important;
+}
+
 .button_primary {
   color: #011e41 !important;
   background-color: #fff !important;
@@ -60,61 +69,24 @@ button {
 .button_primary:hover {
   color: #fff !important;
   background-color: #011e41 !important;
-
 }
 
 .button_secondary {
-  color: gray;
+  color: #00a7dc;
   background-color: #fff;
-  border-color: gray;
+  border-color: #00a7dc;
   border: solid 1px;
 }
 
 .button_secondary:hover {
   color: #fff;
-  background-color: gray;
-
+  background-color: #00a7dc;
 }
 
-/* input:required {
-  border: 2px solid red;
-} */
-/* input:invalid {
-  border: 2px solid red;
-} */
-
-
-/* The message box is shown when the user clicks on the password field */
-#password_error {
-  display:none;
-  color: #011e41;
-  position: relative;
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; 
+}
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; 
 }
 
-/* Add a green text color and a checkmark when the requirements are right */
-.valid_password {
-  color: green;
-}
-
-.valid_password:before {
-  position: relative;
-  left: -35px;
-  content: "✔";
-}
-
-/* Add a red text color and an "x" when the requirements are wrong */
-.invalid_password {
-  color: red;
-}
-
-.invalid_password:before {
-  position: relative;
-  left: -35px;
-  content: "✖";
-}
-
-.date-time-error-message {
-  color: red;
-  font-size: 14px;
-  display: none;
-}
