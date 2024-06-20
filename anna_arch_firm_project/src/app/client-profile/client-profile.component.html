@@ -52,18 +52,18 @@
         </div>
 
         <div class="col-12" style="text-align: right;">
+            <!-- Note to self. Read only id should probably be changed to one way binding.  -->
             <input type="text" name="c_id" id="c_id" readonly style="border: none; text-align: right;" placeholder="Client ID"
                 [(ngModel)]="model.c_id" #c_id="ngModel">
         </div>
 
         <div class="col-12" style="text-align: right;">
-            <button class="button" type="submit" id="saveButton" value="Save" 
+            <button class="button" type="submit" id="saveButton" 
             [ngClass]="{
                 'button button_primary': clientProfileInstance.valid,
                 'button button_invalid': !clientProfileInstance.valid
             }"
-        [disabled]="!clientProfileInstance.form.valid">
-        Save</button>
+        [disabled]="!clientProfileInstance.form.valid">Save</button>
         </div>
         <div class="col-12" style="text-align: right; font-size: 10px;">
         <button class="button button_secondary" type="button" (click)="newClient(clientProfileInstance)">
